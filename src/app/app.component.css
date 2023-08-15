@@ -1,3 +1,7 @@
 .button {
-    border: 1px solid black;
+        border: 1px solid black;
+}
+.title {
+  font-size: 16px;
+  font-weight: 300;
 }
