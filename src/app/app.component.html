@@ -1,6 +1,12 @@
 <div class="nav-bar">
-  <button mat-raised-button>Home</button>
-  <button mat-button>Basic</button>
+  <button mat-raised-button color="primary">
+    <a routerLink="/">Home</a>
+  </button>
+  <button mat-raised-button color="primary">
+    <a routerLink="/quiz">Quiz</a>
+  </button>
+  <div class="flex-spacer"></div>
+  <button mat-raised-button color="primary">Account</button>
 </div>
 
 <router-outlet></router-outlet>
