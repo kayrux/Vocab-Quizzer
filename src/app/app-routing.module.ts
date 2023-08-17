@@ -19,6 +19,13 @@ const routes: Routes = [
         (m) => m.QuizShellModule
       ),
   },
+  {
+    path: 'vocab',
+    loadChildren: () =>
+      import('./vocab/feature/vocab-shell/vocab-shell.module').then(
+        (m) => m.VocabShellModule
+      ),
+  },
 ];
 
 @NgModule({
