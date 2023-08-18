@@ -13,7 +13,7 @@ const routes: Routes = [
       import('./home/feature/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'quiz',
+    path: 'quizzes',
     loadChildren: () =>
       import('./quiz/feature/quiz-shell/quiz-shell.module').then(
         (m) => m.QuizShellModule
