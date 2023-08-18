@@ -2,9 +2,42 @@
   <div *ngFor="let list of vocabService.defaultLists">
     <div class="list-title">{{ list.title }}</div>
     <div>
-      <div *ngFor="let vocab of list.vocab">
-        {{ vocab.local }} = {{ vocab.translation }}
-      </div>
+      <mat-accordion class="vocab-listing" *ngFor="let vocab of list.vocab">
+        <!--{{ vocab.local }} = {{ vocab.translation }} -->
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ vocab.local }}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{panelOpenState ? 'Hide Translation' : 'Show Translation'}}
+                </mat-panel-description>
+            </mat-expansion-panel-header >
+            
+            {{ vocab.translation }}
+
+            <button class = "delete-button" mat-mini-fab
+                    color="primary" 
+                    aria-label="Example icon button with a delete icon"
+                    >
+                <mat-icon>
+                    delete
+                </mat-icon>
+            </button>
+
+            <button class = "favorite-button" mat-mini-fab
+                    color="accent" 
+                    aria-label="Example icon button with a favorite icon"
+                    onclick="vocab.isFav=!vocab.isFav"
+                    >
+                <mat-icon>
+                    favorite
+                </mat-icon>
+            </button>
+
+        </mat-expansion-panel>
+    </mat-accordion>
     </div>
   </div>
 </div>
