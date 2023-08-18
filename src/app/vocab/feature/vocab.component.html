@@ -1,7 +1,10 @@
-<p>vocab works!</p>
-
-<ul>
-    <li *ngFor="let vocab of vocabService.basicVocabList">
-        {{vocab}}
-    </li>
-</ul>
+<div class="vocab-list-container">
+  <div *ngFor="let list of vocabService.defaultLists">
+    <div class="list-title">{{ list.title }}</div>
+    <div>
+      <div *ngFor="let vocab of list.vocab">
+        {{ vocab.local }} = {{ vocab.translation }}
+      </div>
+    </div>
+  </div>
+</div>
