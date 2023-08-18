@@ -14,4 +14,5 @@ export interface VocabList {
 export interface Vocab {
   local: string;
   translation: string;
+  isFav: boolean;
 }

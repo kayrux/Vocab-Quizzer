@@ -11,3 +11,11 @@
   font-size: 16px;
   margin-bottom: 0.5rem;
 }
+
+.delete-button {
+  margin-left: 5rem;
+}
+
+.favorite-button {
+  margin-left: 1rem;
+}
