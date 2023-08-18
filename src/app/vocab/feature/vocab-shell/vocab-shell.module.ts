@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
     VocabShellRoutingModule, 
     MatButtonModule,
     MatExpansionModule,
-    MatIconModule,],
+    MatIconModule,
+    ],
 })
 export class VocabShellModule {}
