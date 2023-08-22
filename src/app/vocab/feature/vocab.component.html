@@ -5,13 +5,16 @@
       <mat-accordion class="vocab-listing" *ngFor="let vocab of list.vocab">
         <!--{{ vocab.local }} = {{ vocab.translation }} -->
         <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false">
+                             (closed)="panelOpenState = false"
+                             class="vocab-expansion-panel">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     {{ vocab.local }}
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{panelOpenState ? 'Hide Translation' : 'Show Translation'}}
+                    <div id="ShowHideText">
+                        {{(panelOpenState) ? 'Hide Translation' : 'Show Translation'}}
+                    </div>
                 </mat-panel-description>
             </mat-expansion-panel-header >
             
@@ -20,7 +23,7 @@
             <button class = "delete-button" mat-mini-fab
                     color="primary" 
                     aria-label="Example icon button with a delete icon"
-                    (click)="openDialog()"
+                    (click)="openDeleteDialog()"
                     >
                 <mat-icon>
                     delete
@@ -30,7 +33,7 @@
             <button class = "favorite-button" mat-mini-fab
                     color="accent" 
                     aria-label="Example icon button with a favorite icon"
-                    onclick="vocab.isFav=!vocab.isFav"
+                    (click)="openFavoriteSnackBar(vocab.local)"
                     >
                 <mat-icon>
                     favorite

@@ -5,6 +5,7 @@ import { VocabComponent } from '../vocab.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [VocabComponent],
@@ -14,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatExpansionModule,
     MatIconModule,
+    MatSnackBarModule,
     ],
 })
 export class VocabShellModule {}
