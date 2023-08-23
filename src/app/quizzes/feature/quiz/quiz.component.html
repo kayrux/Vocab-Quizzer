@@ -1,0 +1,5 @@
+<div class="quiz-container" *ngIf="quizService.quiz as quiz">
+  <div class="question" *ngFor="let question of quiz.questions">
+    <div class="prompt" [innerHtml]="question.prompt"></div>
+  </div>
+</div>

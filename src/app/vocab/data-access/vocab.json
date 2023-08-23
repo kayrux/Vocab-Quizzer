@@ -33,7 +33,11 @@
             { "local": "Monday", "translation": "Montag", "isFav": false },
             { "local": "Tuesday", "translation": "Dienstag", "isFav": false },
             { "local": "Wednesday", "translation": "Mittwoch", "isFav": false },
-            { "local": "Thursday", "translation": "Donnerstag", "isFav": false },
+            {
+              "local": "Thursday",
+              "translation": "Donnerstag",
+              "isFav": false
+            },
             { "local": "Friday", "translation": "Freitag", "isFav": false },
             { "local": "Saturday", "translation": "Samstag", "isFav": false },
             { "local": "Sunday", "translation": "Sonntag", "isFav": false },
@@ -45,7 +49,11 @@
             { "local": "June", "translation": "Juni", "isFav": false },
             { "local": "July", "translation": "Juli", "isFav": false },
             { "local": "August", "translation": "August", "isFav": false },
-            { "local": "September", "translation": "September", "isFav": false },
+            {
+              "local": "September",
+              "translation": "September",
+              "isFav": false
+            },
             { "local": "October", "translation": "Oktober", "isFav": false },
             { "local": "November", "translation": "November", "isFav": false },
             { "local": "December", "translation": "Dezember", "isFav": false }
@@ -54,26 +62,126 @@
         "household": {
           "title": "Household",
           "vocab": [
-            { "local": "chair", "translation": "Stuhl", "isFav": false },
-            { "local": "table", "translation": "Tisch", "isFav": false },
-            { "local": "couch", "translation": "Sofa", "isFav": false },
-            { "local": "bed", "translation": "Bett", "isFav": false },
-            { "local": "wardrobe", "translation": "Kleiderschrank", "isFav": false },
-            { "local": "desk", "translation": "Schreibtisch", "isFav": false },
-            { "local": "bookshelf", "translation": "Bücherregal", "isFav": false },
-            { "local": "lamp", "translation": "Lampe", "isFav": false },
-            { "local": "mirror", "translation": "Spiegel", "isFav": false },
-            { "local": "rug", "translation": "Teppich", "isFav": false },
-            { "local": "cabinet", "translation": "Schrank", "isFav": false },
-            { "local": "shelves", "translation": "Regale", "isFav": false },
-            { "local": "clock", "translation": "Uhr", "isFav": false },
-            { "local": "drawer", "translation": "Schublade", "isFav": false },
-            { "local": "sofa bed", "translation": "Schlafsofa", "isFav": false },
-            { "local": "coffee table", "translation": "Couchtisch", "isFav": false },
-            { "local": "dining table", "translation": "Esstisch", "isFav": false },
-            { "local": "nightstand", "translation": "Nachttisch", "isFav": false },
-            { "local": "ottoman", "translation": "Hocker", "isFav": false },
-            { "local": "armchair", "translation": "Sessel", "isFav": false }
+            {
+              "local": "chair",
+              "translation": "Stuhl",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "table",
+              "translation": "Tisch",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "couch",
+              "translation": "Sofa",
+              "article": "das",
+              "isFav": false
+            },
+            {
+              "local": "bed",
+              "translation": "Bett",
+              "article": "das",
+              "isFav": false
+            },
+            {
+              "local": "wardrobe",
+              "translation": "Kleiderschrank",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "desk",
+              "translation": "Schreibtisch",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "bookshelf",
+              "translation": "Bücherregal",
+              "article": "das",
+              "isFav": false
+            },
+            {
+              "local": "lamp",
+              "translation": "Lampe",
+              "article": "die",
+              "isFav": false
+            },
+            {
+              "local": "mirror",
+              "translation": "Spiegel",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "rug",
+              "translation": "Teppich",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "cabinet",
+              "translation": "Schrank",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "shelves",
+              "translation": "Regale",
+              "article": "die",
+              "isFav": false
+            },
+            {
+              "local": "clock",
+              "translation": "Uhr",
+              "article": "die",
+              "isFav": false
+            },
+            {
+              "local": "drawer",
+              "translation": "Schublade",
+              "article": "die",
+              "isFav": false
+            },
+            {
+              "local": "sofa bed",
+              "translation": "Schlafsofa",
+              "article": "das",
+              "isFav": false
+            },
+            {
+              "local": "coffee table",
+              "translation": "Couchtisch",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "dining table",
+              "translation": "Esstisch",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "nightstand",
+              "translation": "Nachttisch",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "ottoman",
+              "translation": "Hocker",
+              "article": "der",
+              "isFav": false
+            },
+            {
+              "local": "armchair",
+              "translation": "Sessel",
+              "article": "der",
+              "isFav": false
+            }
           ]
         }
       }
