@@ -14,5 +14,8 @@ export interface VocabList {
 export interface Word {
   local: string;
   translation: string;
+  article?: Article;
   isFav: boolean;
 }
+
+export type Article = 'der' | 'die' | 'das';
