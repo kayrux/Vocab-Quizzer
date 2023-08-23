@@ -1,14 +1,46 @@
 <div class="vocab-list-container">
   <div *ngFor="let list of vocabService.defaultLists">
     <div class="list-title">{{ list.title }}</div>
-    <div>
-      <div *ngFor="let word of list.vocab">
-        {{ word.local }} = {{ word.translation }}
-      </div>
-    </div>
+    <mat-accordion class="vocab-listing" *ngFor="let vocab of list.vocab">
+      <!--{{ vocab.local }} = {{ vocab.translation }} -->
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        class="vocab-expansion-panel"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ vocab.local }}
+          </mat-panel-title>
+          <mat-panel-description>
+            <div id="ShowHideText">
+              {{ panelOpenState ? "Hide Translation" : "Show Translation" }}
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        {{ vocab.translation }}
+
+        <button
+          class="delete-button"
+          mat-mini-fab
+          color="primary"
+          aria-label="Example icon button with a delete icon"
+          (click)="openDeleteDialog()"
+        >
+          <mat-icon> delete </mat-icon>
+        </button>
+
+        <button
+          class="favorite-button"
+          mat-mini-fab
+          color="accent"
+          aria-label="Example icon button with a favorite icon"
+          (click)="openFavoriteSnackBar(vocab.local)"
+        >
+          <mat-icon> favorite </mat-icon>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </div>
-
-<button mat-raised-button color="primary" (click)="test()">
-  <mat-icon>add</mat-icon>
-</button>

@@ -12,18 +12,4 @@ export class VocabService {
   public customLists: VocabList[] = [];
 
   constructor() {}
-
-  public newList() {
-    console.log('New list added', this.customLists);
-    this.customLists.push({
-      title: 'new',
-      vocab: [
-        { local: 'one', translation: 'eins' },
-        { local: 'two', translation: 'zwei' },
-        { local: 'three', translation: 'drei' },
-        { local: 'four', translation: 'vier' },
-        { local: 'five', translation: 'fünf' },
-      ],
-    });
-  }
 }
