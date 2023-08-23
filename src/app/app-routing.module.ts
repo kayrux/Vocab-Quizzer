@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'quizzes',
     loadChildren: () =>
-      import('./quiz/feature/quiz-shell/quiz-shell.module').then(
+      import('./quizzes/feature/quiz-shell/quiz-shell.module').then(
         (m) => m.QuizShellModule
       ),
   },

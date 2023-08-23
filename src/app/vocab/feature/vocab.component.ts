@@ -4,13 +4,14 @@ import { VocabService } from '../data-access/vocab.service';
 @Component({
   selector: 'app-vocab',
   templateUrl: './vocab.component.html',
-  styleUrls: ['./vocab.component.css']
+  styleUrls: ['./vocab.component.css'],
 })
 export class VocabComponent implements OnInit {
+  constructor(public vocabService: VocabService) {}
 
-  constructor(public vocabService:VocabService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  test() {
+    this.vocabService.newList();
   }
-
 }

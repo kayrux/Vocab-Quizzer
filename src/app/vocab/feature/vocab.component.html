@@ -2,9 +2,13 @@
   <div *ngFor="let list of vocabService.defaultLists">
     <div class="list-title">{{ list.title }}</div>
     <div>
-      <div *ngFor="let vocab of list.vocab">
-        {{ vocab.local }} = {{ vocab.translation }}
+      <div *ngFor="let word of list.vocab">
+        {{ word.local }} = {{ word.translation }}
       </div>
     </div>
   </div>
 </div>
+
+<button mat-raised-button color="primary" (click)="test()">
+  <mat-icon>add</mat-icon>
+</button>

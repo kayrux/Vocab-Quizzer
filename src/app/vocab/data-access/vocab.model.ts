@@ -8,10 +8,10 @@ export interface LanguageSchema {
 
 export interface VocabList {
   title: string;
-  vocab: Vocab[];
+  vocab: Word[];
 }
 
-export interface Vocab {
+export interface Word {
   local: string;
   translation: string;
 }
