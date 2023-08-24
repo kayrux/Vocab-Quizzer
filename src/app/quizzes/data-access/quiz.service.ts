@@ -1,5 +1,5 @@
 import { VocabService } from './../../vocab/data-access/vocab.service';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import {
   Question,
   QuestionType,
@@ -7,7 +7,6 @@ import {
   QuizType,
   quizLengths,
 } from './quiz.model';
-import { Observable, Subject, startWith, combineLatest, from, of } from 'rxjs';
 import { Word, VocabList } from 'src/app/vocab/data-access/vocab.model';
 import { Router } from '@angular/router';
 
@@ -16,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class QuizService {
   public quiz!: Quiz;
-  public activeQuiz: boolean = false;
+  public activeQuiz = signal(false);
 
   public allvocab: Word[] = [];
 
@@ -33,7 +32,7 @@ export class QuizService {
       case 'custom':
         break;
     }
-    this.activeQuiz = true;
+    this.activeQuiz.set(true);
     this.router.navigateByUrl('/quizzes/quiz');
   }
 
@@ -47,10 +46,6 @@ export class QuizService {
       type: 'random',
       questions: questions,
     };
-  }
-
-  isQuizActive() {
-    return of(this.activeQuiz);
   }
 
   updatecombinedVocabList() {

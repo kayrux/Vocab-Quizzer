@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../data-access/quiz.service';
 import { Quiz } from '../../data-access/quiz.model';
-import { Observable, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
