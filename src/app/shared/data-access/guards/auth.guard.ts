@@ -9,10 +9,6 @@ export function quizGuard(): CanActivateFn {
   return () => {
     const quizService: QuizService = inject(QuizService);
     const router: Router = inject(Router);
-    return quizService.isQuizActive().pipe(
-      tap((activeQuiz) => {
-        return !activeQuiz ? router.navigateByUrl('quizzes') : true;
-      })
-    );
+    return quizService.activeQuiz() ? true : router.navigateByUrl('quizzes');
   };
 }
