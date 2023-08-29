@@ -11,6 +11,7 @@ import { FormControl } from '@angular/forms';
 export class QuizComponent implements OnInit {
   public selectedQuestionIndex = signal(0);
   public currentQuestionNumber: number = 1;
+  public percentageProgress: number = 0;
   public selectedAnswerControl: FormControl = new FormControl(null);
   public quiz!: Quiz;
 
@@ -56,7 +57,13 @@ export class QuizComponent implements OnInit {
     } else {
       this.correctAnswer = false;
     }
+    this.updateProgress();
     this.quizState = QuizState.ANSWER_CHECKED;
+  }
+
+  updateProgress() {
+    this.percentageProgress =
+      ((this.selectedQuestionIndex() + 1) / this.quiz.questions.length) * 100;
   }
 
   continue() {

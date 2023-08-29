@@ -6,6 +6,7 @@ import { QuizShellRoutingModule } from './quiz-shell-routing.module';
 import { OptionCardComponent } from 'src/app/shared/ui/option-card/option-card.component';
 import { QuizComponent } from '../quiz/quiz.component';
 import { SharedCommon } from 'src/app/shared/shared-modules/shared-common.module';
+import { ProgressBarComponent } from 'src/app/shared/ui/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [QuizzesComponent, QuizComponent],
@@ -15,6 +16,7 @@ import { SharedCommon } from 'src/app/shared/shared-modules/shared-common.module
     OptionCardComponent,
     SharedAngularMaterialModule,
     SharedCommon,
+    ProgressBarComponent,
   ],
   exports: [],
 })

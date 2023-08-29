@@ -1,6 +1,9 @@
 <div class="quiz-container" *ngIf="quizService.quiz as quiz">
   <ng-container *ngFor="let question of quiz.questions; let i = index">
     <div class="question-container" *ngIf="currentQuestionNumber === i + 1">
+      <app-progress-bar
+        [percentageFilled]="percentageProgress"
+      ></app-progress-bar>
       <div class="quiz-prompt-container">
         <div class="question-number">{{ currentQuestionNumber }})</div>
         <div class="prompt" [innerHtml]="question.prompt"></div>
