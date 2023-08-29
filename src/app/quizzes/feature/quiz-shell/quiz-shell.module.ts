@@ -7,9 +7,10 @@ import { OptionCardComponent } from 'src/app/shared/ui/option-card/option-card.c
 import { QuizComponent } from '../quiz/quiz.component';
 import { SharedCommon } from 'src/app/shared/shared-modules/shared-common.module';
 import { ProgressBarComponent } from 'src/app/shared/ui/progress-bar/progress-bar.component';
+import { QuizSummaryComponent } from '../../ui/quiz-summary/quiz-summary.component';
 
 @NgModule({
-  declarations: [QuizzesComponent, QuizComponent],
+  declarations: [QuizzesComponent, QuizComponent, QuizSummaryComponent],
   imports: [
     CommonModule,
     QuizShellRoutingModule,

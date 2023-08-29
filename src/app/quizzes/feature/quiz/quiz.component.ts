@@ -12,6 +12,7 @@ export class QuizComponent implements OnInit {
   public selectedQuestionIndex = signal(0);
   public currentQuestionNumber: number = 1;
   public percentageProgress: number = 0;
+  public numCorrect: number = 0;
   public selectedAnswerControl: FormControl = new FormControl(null);
   public quiz!: Quiz;
 
@@ -22,7 +23,6 @@ export class QuizComponent implements OnInit {
 
   constructor(public quizService: QuizService) {
     effect(() => {
-      console.log('effect', this.selectedQuestionIndex());
       this.currentQuestionNumber = this.selectedQuestionIndex() + 1;
     });
   }
@@ -46,14 +46,13 @@ export class QuizComponent implements OnInit {
       this.continue();
       return;
     }
-    console.log('check');
 
     if (
       this.selectedAnswerControl.value ===
       this.quiz.questions[this.selectedQuestionIndex()].answer
     ) {
-      console.log('Correct!');
       this.correctAnswer = true;
+      this.numCorrect++;
     } else {
       this.correctAnswer = false;
     }
