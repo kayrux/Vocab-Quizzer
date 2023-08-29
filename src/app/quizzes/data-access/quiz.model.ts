@@ -12,5 +12,11 @@ export interface Question {
 
 export type QuestionType = 'multiple choice' | 'text';
 export type QuizType = 'random' | 'quick custom' | 'custom';
+export enum QuizState {
+  AWAITING_ANSWER,
+  ANSWER_SELECTED,
+  ANSWER_CHECKED,
+  QUIZ_COMPLETE,
+}
 
 export const quizLengths = [10, 15, 20];

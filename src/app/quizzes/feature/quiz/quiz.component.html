@@ -2,7 +2,7 @@
   <ng-container *ngFor="let question of quiz.questions; let i = index">
     <div class="question-container" *ngIf="currentQuestionNumber === i + 1">
       <div class="quiz-prompt-container">
-        <div class="question-number">{{ currentQuestionNumber }}</div>
+        <div class="question-number">{{ currentQuestionNumber }})</div>
         <div class="prompt" [innerHtml]="question.prompt"></div>
       </div>
       <div class="answer-container">
@@ -28,6 +28,22 @@
   </ng-container>
 
   <div class="action-bar">
-    <button mat-raised-button color="primary" (click)="onCheck()">Check</button>
+    <div
+      class="feedback"
+      [class.correct-answer]="correctAnswer"
+      [class.wrong-answer]="!correctAnswer"
+      *ngIf="quizState === QuizStates.ANSWER_CHECKED"
+    >
+      {{ correctAnswer ? "Perfect!" : "Wrong Answer!" }}
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onCheck()"
+      [disabled]="quizState === QuizStates.AWAITING_ANSWER"
+      class="next-btn"
+    >
+      {{ quizState === QuizStates.ANSWER_CHECKED ? "Continue" : "Check" }}
+    </button>
   </div>
 </div>
