@@ -1,6 +1,7 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -60,6 +61,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatPaginatorModule,
     DragDropModule,
     MatListModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatInputModule,
@@ -90,6 +92,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatPaginatorModule,
     DragDropModule,
     MatListModule,
+    ReactiveFormsModule,
   ],
 })
 export class SharedAngularMaterialModule {}
