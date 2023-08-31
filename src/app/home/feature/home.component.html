@@ -1,1 +1,20 @@
-<p>Home</p>
+<mat-card class="vocab-searcher">
+    <mat-card-header>
+        <mat-card-title>Which word would you like to search up today?</mat-card-title>
+
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input matInput #box (keyup)="onKey(box.value)">
+        </mat-form-field>
+        
+        <a mat-raised-button [href]="'https://www.linguee.com/german-english/translation/'+ vocabToSearch +'.html'" target="_blank">SEARCH!!</a>
+
+        <button mat-raised-button (click)="openDictionaryDialog()">
+            GO!
+        </button>
+
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card-header>
+</mat-card>
