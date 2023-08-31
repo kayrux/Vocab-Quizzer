@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CardSize } from './option-card.model';
 import { CommonModule } from '@angular/common';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-option-card',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
 export class OptionCardComponent implements OnInit {
   @Input() public title: string = '';
   @Input() public description: string = '';
-  @Input() public cardSize: CardSize = 'small';
+  @Input() public size: CardSize = 'small';
+  @Input() public selected: boolean = false;
 
   constructor() {}
 

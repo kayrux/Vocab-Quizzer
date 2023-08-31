@@ -1,5 +1,64 @@
-<div class="quiz-container" *ngIf="quizService.quiz as quiz">
-  <div class="question" *ngFor="let question of quiz.questions">
-    <div class="prompt" [innerHtml]="question.prompt"></div>
+<ng-container *ngIf="quizService.quiz as quiz">
+  <div
+    class="quiz-container"
+    *ngIf="quizState !== QuizStates.QUIZ_COMPLETE; else quizSummary"
+  >
+    <ng-container *ngFor="let question of quiz.questions; let i = index">
+      <div class="question-container" *ngIf="currentQuestionNumber === i + 1">
+        <app-progress-bar
+          [percentageFilled]="percentageProgress"
+        ></app-progress-bar>
+        <div class="quiz-prompt-container">
+          <div class="question-number">{{ currentQuestionNumber }})</div>
+          <div class="prompt" [innerHtml]="question.prompt"></div>
+        </div>
+        <div class="answer-container">
+          <mat-radio-group
+            [formControl]="selectedAnswerControl"
+            class="multiple-choice-options"
+            *ngIf="question.type === 'multiple choice'"
+          >
+            <ng-container
+              *ngFor="let option of question.options; let q = index"
+            >
+              <input type="radio" name="quiz" [id]="option + q" />
+              <label [for]="option + q">
+                <app-option-card
+                  [title]="option"
+                  [size]="'multiple-choice-option'"
+                  [selected]="selectedAnswerControl.value === option"
+                  (click)="setValue(option)"
+                ></app-option-card>
+              </label>
+            </ng-container>
+          </mat-radio-group>
+        </div>
+      </div>
+    </ng-container>
+    <div class="action-bar">
+      <div
+        class="feedback"
+        [class.correct-answer]="correctAnswer"
+        [class.wrong-answer]="!correctAnswer"
+        *ngIf="quizState === QuizStates.ANSWER_CHECKED"
+      >
+        {{ correctAnswer ? "Perfect!" : "Wrong Answer!" }}
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onCheck()"
+        [disabled]="quizState === QuizStates.AWAITING_ANSWER"
+        class="next-btn"
+      >
+        {{ quizState === QuizStates.ANSWER_CHECKED ? "Continue" : "Check" }}
+      </button>
+    </div>
   </div>
-</div>
+  <ng-template #quizSummary>
+    <app-quiz-summary
+      [totalQuestions]="quiz.questions.length"
+      [numCorrect]="numCorrect"
+    ></app-quiz-summary>
+  </ng-template>
+</ng-container>

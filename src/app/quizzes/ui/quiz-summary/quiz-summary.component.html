@@ -1,0 +1,15 @@
+<div class="summary">
+  <div class="header">Quiz Complete!</div>
+  <div class="stats-container">
+    <div class="stat">Score: {{ numCorrect + "/" + totalQuestions }}</div>
+    <div class="stat">
+      Accuracy: {{ (numCorrect / totalQuestions) * 100 | number : "1.0-0" }}%
+    </div>
+  </div>
+  <div class="actions-container">
+    <button mat-raised-button>Try again</button>
+    <button mat-raised-button color="primary" routerLink="/quizzes">
+      Continue
+    </button>
+  </div>
+</div>

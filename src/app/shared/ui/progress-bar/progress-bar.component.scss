@@ -1,0 +1,22 @@
+.progress-bar {
+  width: 100%;
+  height: 1rem;
+  margin: 0.5rem;
+
+  border-radius: 10px;
+  background-color: rgb(229, 229, 229);
+}
+
+.progress {
+  height: 100%;
+  width: var(--percentage-filled);
+  border-radius: inherit;
+  background: linear-gradient(
+    0deg,
+    var(--secondary) 0%,
+    rgb(255 163 250) 60%,
+    var(--secondary) 100%
+  );
+
+  transition: width 0.5s cubic-bezier(0, 0.75, 0.9, 0.85);
+}

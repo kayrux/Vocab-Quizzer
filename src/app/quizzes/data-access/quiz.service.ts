@@ -74,9 +74,12 @@ export class QuizService {
     if (questionType === 'multiple choice') {
       return {
         type: 'multiple choice',
-        prompt: `What does <b>${word.local}</b> translate to?`,
-        answer: word.translation,
-        options: this.getRandomVocab(4).map((word) => word.local),
+        prompt: `What does <b>${word.translation}</b> translate to?`,
+        answer: word.local,
+        options: [
+          word.local,
+          ...this.getRandomVocab(3).map((word) => word.local),
+        ],
       };
     } else {
       return {

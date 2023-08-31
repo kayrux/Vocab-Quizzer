@@ -27,8 +27,13 @@
   color: rgb(108, 107, 107);
 }
 
+.multiple-choice-option {
+  width: 10rem;
+  height: 3rem;
+}
+
 .small {
-  width: 15rem;
+  width: 10rem;
   height: 5rem; 
 }
 
@@ -40,4 +45,11 @@
 .large {
   width: 30rem;
   height: 10rem; 
+}
+
+.selected {
+  transition-duration: 0.15s;
+  box-shadow: 0 0 10px 0 var(--primary);
+  transform: scale(1.05);
+  border-color: var(--primary);
 }

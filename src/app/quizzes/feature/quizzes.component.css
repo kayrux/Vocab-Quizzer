@@ -1,3 +1,6 @@
+:host {
+  display: inline-block;
+}
 .container {
   padding: 1.5rem;
 }

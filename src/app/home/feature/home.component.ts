@@ -1,7 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
-import { SharedAngularMaterialModule } from 'src/app/shared/shared-angular-material/shared-angular-material.module';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +23,10 @@ export class HomeComponent implements OnInit {
     this.vocabToSearch = inputedWord;
   }
 
-  openDictionaryDialog()
-  {
-    const dialogRef = this.dialog.open(dictionaryWindow,{data:{word:this.vocabToSearch}});
+  openDictionaryDialog() {
+    const dialogRef = this.dialog.open(dictionaryWindow, {
+      data: { word: this.vocabToSearch },
+    });
   }
 }
 
@@ -29,7 +34,11 @@ export class HomeComponent implements OnInit {
   selector: 'dictionary-window',
   templateUrl: 'dictionary-window.html',
   standalone: true,
-  imports: [MatDialogModule,MatButtonModule,SharedAngularMaterialModule],
+  imports: [MatDialogModule, MatButtonModule],
 })
-export class dictionaryWindow {constructor(public dialogRef: MatDialogRef<dictionaryWindow>,
-  @Inject(MAT_DIALOG_DATA) public data:{word:string}) {}}
+export class dictionaryWindow {
+  constructor(
+    public dialogRef: MatDialogRef<dictionaryWindow>,
+    @Inject(MAT_DIALOG_DATA) public data: { word: string }
+  ) {}
+}
