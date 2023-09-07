@@ -72,14 +72,12 @@ export class QuizService {
 
   generateQuestion(word: Word, questionType: QuestionType): Question {
     if (questionType === 'multiple choice') {
+      let answerIsLocal = this.getRandomNumber(0, 1) ? true : false;
       return {
         type: 'multiple choice',
-        prompt: `What does <b>${word.translation}</b> translate to?`,
-        answer: word.local,
-        options: [
-          word.local,
-          ...this.getRandomVocab(3).map((word) => word.local),
-        ],
+        prompt: this.generatePrompt(word, answerIsLocal),
+        answer: answerIsLocal ? word.local : word.translation,
+        options: this.getMultipleChoiceOptions(word, 4, answerIsLocal),
       };
     } else {
       return {
@@ -90,18 +88,65 @@ export class QuizService {
     }
   }
 
-  getRandomVocab(numVocab: number): Word[] {
+  getMultipleChoiceOptions(
+    answer: Word,
+    numOptions: number,
+    answerIsLocal = true
+  ) {
+    let options = [...this.getRandomVocab(numOptions - 1, answer), answer];
+    return this.randomizeArray(
+      options.map((word) => {
+        return this.generateMultipleChoiceOption(word, answerIsLocal);
+      })
+    );
+  }
+
+  generatePrompt(word: Word, answerIsLocal: boolean) {
+    let wordPrompt = answerIsLocal ? word.translation : word.local;
+    return `What does <b>${this.prependArticle(
+      word,
+      wordPrompt
+    )}</b> translate to?`;
+  }
+
+  generateMultipleChoiceOption(word: Word, answerIsLocal: boolean) {
+    let option = answerIsLocal ? word.local : word.translation;
+    return this.prependArticle(word, option);
+  }
+
+  prependArticle(word: Word, prependTo: string) {
+    if (word.article && prependTo === word.translation) {
+      return word.article + ' ' + prependTo;
+    } else {
+      return prependTo;
+    }
+  }
+
+  getRandomVocab(numVocab: number, exclude?: Word): Word[] {
     if (numVocab >= this.allvocab.length) {
       return [...this.allvocab];
     }
-
-    let copy = [...this.allvocab];
+    let copy = [];
+    if (exclude) {
+      copy = [...this.allvocab.filter((word) => word.local !== exclude.local)];
+    } else {
+      copy = [...this.allvocab];
+    }
     for (let i = copy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [copy[i], copy[j]] = [copy[j], copy[i]];
     }
 
     return copy.slice(0, numVocab);
+  }
+
+  randomizeArray(array: any[]) {
+    let copy = [...array];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
   }
 
   getRandomNumber(min: number, max: number) {

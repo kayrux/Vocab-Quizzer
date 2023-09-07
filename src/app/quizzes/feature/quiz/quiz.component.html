@@ -38,12 +38,15 @@
     <div class="action-bar">
       <div
         class="feedback"
-        [class.correct-answer]="correctAnswer"
-        [class.wrong-answer]="!correctAnswer"
+        [class.correct-answer]="correctAnswerSelected"
+        [class.wrong-answer]="!correctAnswerSelected"
         *ngIf="quizState === QuizStates.ANSWER_CHECKED"
       >
-        {{ correctAnswer ? "Perfect!" : "Wrong Answer!" }}
+        {{ correctAnswerSelected ? "Perfect!" : "Wrong Answer!" }}
       </div>
+      <button mat-raised-button (click)="completeQuizBackdoor()">
+        End Quiz
+      </button>
       <button
         mat-raised-button
         color="primary"
@@ -59,6 +62,7 @@
     <app-quiz-summary
       [totalQuestions]="quiz.questions.length"
       [numCorrect]="numCorrect"
+      [$onResetQuiz]="$onResetQuiz"
     ></app-quiz-summary>
   </ng-template>
 </ng-container>

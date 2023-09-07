@@ -1,7 +1,9 @@
+import { QuizType } from './../../data-access/quiz.model';
 import { Component, OnInit, effect, signal } from '@angular/core';
 import { QuizService } from '../../data-access/quiz.service';
 import { Quiz, QuizState } from '../../data-access/quiz.model';
 import { FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -18,8 +20,10 @@ export class QuizComponent implements OnInit {
 
   public QuizStates = QuizState;
   public quizState: QuizState = QuizState.AWAITING_ANSWER;
-  public correctAnswer: boolean = false;
+  public correctAnswerSelected: boolean = false;
   public disableCheckButton: boolean = false;
+
+  public $onResetQuiz: Subject<void> = new Subject<void>();
 
   constructor(public quizService: QuizService) {
     effect(() => {
@@ -30,6 +34,7 @@ export class QuizComponent implements OnInit {
   ngOnInit(): void {
     console.log('quiz', this.quizService.quiz);
     this.quiz = this.quizService.quiz;
+    this.$onResetQuiz.subscribe(() => this.resetQuiz());
   }
 
   setValue(option: string) {
@@ -51,10 +56,10 @@ export class QuizComponent implements OnInit {
       this.selectedAnswerControl.value ===
       this.quiz.questions[this.selectedQuestionIndex()].answer
     ) {
-      this.correctAnswer = true;
+      this.correctAnswerSelected = true;
       this.numCorrect++;
     } else {
-      this.correctAnswer = false;
+      this.correctAnswerSelected = false;
     }
     this.updateProgress();
     this.quizState = QuizState.ANSWER_CHECKED;
@@ -76,6 +81,20 @@ export class QuizComponent implements OnInit {
         return val + 1;
       }
     });
+  }
+
+  resetQuiz() {
+    this.selectedQuestionIndex.set(0);
+    this.currentQuestionNumber = 1;
+    this.percentageProgress = 0;
+    this.numCorrect = 0;
+    this.selectedAnswerControl.setValue(null);
+    this.quizState = QuizState.AWAITING_ANSWER;
+    this.quiz = this.quizService.quiz;
+  }
+
+  completeQuizBackdoor() {
+    this.quizState = QuizState.QUIZ_COMPLETE;
   }
 
   resetSelectedAnswer() {

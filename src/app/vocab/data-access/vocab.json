@@ -5,26 +5,26 @@
         "numbers": {
           "title": "Numbers",
           "vocab": [
-            { "local": "one", "translation": "eins", "isFav": false },
-            { "local": "two", "translation": "zwei", "isFav": false },
-            { "local": "three", "translation": "drei", "isFav": false },
-            { "local": "four", "translation": "vier", "isFav": false },
-            { "local": "five", "translation": "fünf", "isFav": false },
-            { "local": "six", "translation": "sechs", "isFav": false },
-            { "local": "seven", "translation": "sieben", "isFav": false },
-            { "local": "eight", "translation": "acht", "isFav": false },
-            { "local": "nine", "translation": "neun", "isFav": false },
-            { "local": "ten", "translation": "zehn", "isFav": false },
-            { "local": "eleven", "translation": "elf", "isFav": false },
-            { "local": "twelve", "translation": "zwölf", "isFav": false },
-            { "local": "thirteen", "translation": "dreizehn", "isFav": false },
-            { "local": "fourteen", "translation": "vierzehn", "isFav": false },
-            { "local": "fifteen", "translation": "fünfzehn", "isFav": false },
-            { "local": "sixteen", "translation": "sechzehn", "isFav": false },
-            { "local": "seventeen", "translation": "siebzehn", "isFav": false },
-            { "local": "eighteen", "translation": "achtzehn", "isFav": false },
-            { "local": "nineteen", "translation": "neunzehn", "isFav": false },
-            { "local": "twenty", "translation": "zwanzig", "isFav": false }
+            { "local": "One", "translation": "Eins", "isFav": false },
+            { "local": "Two", "translation": "Zwei", "isFav": false },
+            { "local": "Three", "translation": "Drei", "isFav": false },
+            { "local": "Four", "translation": "Vier", "isFav": false },
+            { "local": "Five", "translation": "Fünf", "isFav": false },
+            { "local": "Six", "translation": "Sechs", "isFav": false },
+            { "local": "Seven", "translation": "Sieben", "isFav": false },
+            { "local": "Eight", "translation": "Acht", "isFav": false },
+            { "local": "Nine", "translation": "Neun", "isFav": false },
+            { "local": "Ten", "translation": "Zehn", "isFav": false },
+            { "local": "Eleven", "translation": "Elf", "isFav": false },
+            { "local": "Twelve", "translation": "Zwölf", "isFav": false },
+            { "local": "Thirteen", "translation": "Dreizehn", "isFav": false },
+            { "local": "Fourteen", "translation": "Vierzehn", "isFav": false },
+            { "local": "Fifteen", "translation": "Fünfzehn", "isFav": false },
+            { "local": "Sixteen", "translation": "Sechzehn", "isFav": false },
+            { "local": "Seventeen", "translation": "Siebzehn", "isFav": false },
+            { "local": "Eighteen", "translation": "Achtzehn", "isFav": false },
+            { "local": "Nineteen", "translation": "Neunzehn", "isFav": false },
+            { "local": "Twenty", "translation": "Zwanzig", "isFav": false }
           ]
         },
         "calendar": {
@@ -63,121 +63,121 @@
           "title": "Household",
           "vocab": [
             {
-              "local": "chair",
+              "local": "Chair",
               "translation": "Stuhl",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "table",
+              "local": "Table",
               "translation": "Tisch",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "couch",
+              "local": "Couch",
               "translation": "Sofa",
               "article": "das",
               "isFav": false
             },
             {
-              "local": "bed",
+              "local": "Bed",
               "translation": "Bett",
               "article": "das",
               "isFav": false
             },
             {
-              "local": "wardrobe",
+              "local": "Wardrobe",
               "translation": "Kleiderschrank",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "desk",
+              "local": "Desk",
               "translation": "Schreibtisch",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "bookshelf",
+              "local": "Bookshelf",
               "translation": "Bücherregal",
               "article": "das",
               "isFav": false
             },
             {
-              "local": "lamp",
+              "local": "Lamp",
               "translation": "Lampe",
               "article": "die",
               "isFav": false
             },
             {
-              "local": "mirror",
+              "local": "Mirror",
               "translation": "Spiegel",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "rug",
+              "local": "Rug",
               "translation": "Teppich",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "cabinet",
+              "local": "Cabinet",
               "translation": "Schrank",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "shelves",
+              "local": "Shelves",
               "translation": "Regale",
               "article": "die",
               "isFav": false
             },
             {
-              "local": "clock",
+              "local": "Clock",
               "translation": "Uhr",
               "article": "die",
               "isFav": false
             },
             {
-              "local": "drawer",
+              "local": "Drawer",
               "translation": "Schublade",
               "article": "die",
               "isFav": false
             },
             {
-              "local": "sofa bed",
+              "local": "Sofa Bed",
               "translation": "Schlafsofa",
               "article": "das",
               "isFav": false
             },
             {
-              "local": "coffee table",
+              "local": "Coffee Table",
               "translation": "Couchtisch",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "dining table",
+              "local": "Dining Table",
               "translation": "Esstisch",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "nightstand",
+              "local": "Nightstand",
               "translation": "Nachttisch",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "ottoman",
+              "local": "Ottoman",
               "translation": "Hocker",
               "article": "der",
               "isFav": false
             },
             {
-              "local": "armchair",
+              "local": "Armchair",
               "translation": "Sessel",
               "article": "der",
               "isFav": false
