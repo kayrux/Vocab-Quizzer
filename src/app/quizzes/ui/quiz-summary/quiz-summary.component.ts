@@ -17,7 +17,7 @@ export class QuizSummaryComponent {
       console.log('Error! No quiz found!');
       return;
     }
-    this.quizService.newQuiz(this.quizService.quiz.type);
+    this.quizService.repeatQuiz(this.quizService.quiz.type);
     this.$onResetQuiz.next();
   }
 }

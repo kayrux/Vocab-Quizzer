@@ -4,7 +4,6 @@
 
   padding: 1rem;
   border-radius: 8px;
-  margin: 1rem;
   --border-color:rgb(203 203 203) ;
   border: 2px solid var(--border-color);
   box-shadow: 2px 3px 6px -2px var(--border-color);
@@ -32,6 +31,17 @@
   height: 3rem;
 }
 
+.mini {
+  .title {
+    font-size: 15px !important;
+    margin-bottom: 0px;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  width: 6rem;
+}
 .small {
   width: 10rem;
   height: 5rem; 
