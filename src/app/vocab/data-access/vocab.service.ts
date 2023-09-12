@@ -8,8 +8,14 @@ import { VocabJSON, VocabList } from './vocab.model';
 export class VocabService {
   public vocabJSON = vocabJSON as VocabJSON;
 
-  public defaultLists = Object.values(vocabJSON.languages.german.defaultLists);
+  public defaultLists: VocabList[] = Object.values(
+    vocabJSON.languages.german.defaultLists
+  ) as VocabList[];
   public customLists: VocabList[] = [];
 
   constructor() {}
+
+  public get allVocabLists() {
+    return [...this.defaultLists, ...this.customLists];
+  }
 }

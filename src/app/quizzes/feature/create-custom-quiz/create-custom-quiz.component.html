@@ -1,0 +1,52 @@
+<div>
+  <button mat-raised-button (click)="back()">Back</button>
+</div>
+<form class="selection-container" [formGroup]="createQuizFormGroup" #form>
+  <div class="header">Select vocabulary lists</div>
+  <form [formGroup]="vocabListCheckboxGroup" class="flex-row">
+    <ng-container
+      *ngFor="let vocabList of vocabService.allVocabLists; let q = index"
+    >
+      <input
+        type="checkbox"
+        name="vocabList"
+        [id]="vocabList.title + q"
+        [formControlName]="vocabList.title"
+      />
+      <label [for]="vocabList.title + q">
+        <app-option-card
+          [title]="vocabList.title"
+          [size]="'mini'"
+          [selected]="vocabListCheckboxGroup.controls[vocabList.title].value"
+        ></app-option-card>
+      </label>
+    </ng-container>
+  </form>
+  <mat-error *ngIf="vocabListSelected.invalid && createQuizFormGroup.touched">
+    Please select a vocabulary list
+  </mat-error>
+  <div class="header">Select quiz length</div>
+  <div>
+    <mat-button-toggle-group
+      name="quizLengths"
+      aria-label="Font Style"
+      [formControl]="quizLengthFormControl"
+    >
+      <mat-button-toggle *ngFor="let length of quizLengths" [value]="length">{{
+        length
+      }}</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <mat-error
+    *ngIf="createQuizFormGroup.touched && quizLengthFormControl.invalid"
+    >This field is required</mat-error
+  >
+  <button
+    mat-raised-button
+    color="primary"
+    class="submit-btn"
+    (click)="submit()"
+  >
+    Start Quiz
+  </button>
+</form>

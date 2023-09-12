@@ -8,9 +8,15 @@ import { QuizComponent } from '../quiz/quiz.component';
 import { SharedCommon } from 'src/app/shared/shared-modules/shared-common.module';
 import { ProgressBarComponent } from 'src/app/shared/ui/progress-bar/progress-bar.component';
 import { QuizSummaryComponent } from '../../ui/quiz-summary/quiz-summary.component';
+import { CreateCustomQuizComponent } from '../create-custom-quiz/create-custom-quiz.component';
 
 @NgModule({
-  declarations: [QuizzesComponent, QuizComponent, QuizSummaryComponent],
+  declarations: [
+    QuizzesComponent,
+    QuizComponent,
+    QuizSummaryComponent,
+    CreateCustomQuizComponent,
+  ],
   imports: [
     CommonModule,
     QuizShellRoutingModule,

@@ -15,25 +15,42 @@ import { Router } from '@angular/router';
 })
 export class QuizService {
   public quiz!: Quiz;
+  public savedVocabListKeys: string[] = [];
   public activeQuiz = signal(false);
 
   public allvocab: Word[] = [];
 
   constructor(private vocabService: VocabService, private router: Router) {}
 
-  newQuiz(type: QuizType): void {
+  newQuiz(type: QuizType, quizLength?: number, vocabListKeys?: string[]): void {
     this.updatecombinedVocabList();
     switch (type) {
       case 'random':
         this.quiz = this.createRandomQuiz();
         break;
       case 'quick custom':
+        this.quiz = this.createQuizCustomQuiz(
+          quizLength || 0,
+          vocabListKeys || []
+        );
         break;
       case 'custom':
         break;
     }
     this.activeQuiz.set(true);
     this.router.navigateByUrl('/quizzes/quiz');
+  }
+
+  repeatQuiz(quizType: QuizType) {
+    if (quizType === 'random') {
+      this.newQuiz(this.quiz.type);
+      return;
+    }
+    this.newQuiz(
+      this.quiz.type,
+      this.quiz.questions.length,
+      this.savedVocabListKeys
+    );
   }
 
   createRandomQuiz(): Quiz {
@@ -44,6 +61,17 @@ export class QuizService {
     const questions = this.generateQuizQuestions(quizVocab);
     return {
       type: 'random',
+      questions: questions,
+    };
+  }
+  createQuizCustomQuiz(quizLength: number, vocabListKeys: string[]): Quiz {
+    this.savedVocabListKeys = vocabListKeys;
+    const quizVocab = this.getRandomVocabFromLists(quizLength, vocabListKeys);
+    console.log('quick custom vocab', quizVocab);
+    const questions = this.generateQuizQuestions(quizVocab);
+    console.log('quick custom questions', questions);
+    return {
+      type: 'quick custom',
       questions: questions,
     };
   }
@@ -122,15 +150,30 @@ export class QuizService {
     }
   }
 
-  getRandomVocab(numVocab: number, exclude?: Word): Word[] {
-    if (numVocab >= this.allvocab.length) {
-      return [...this.allvocab];
+  getRandomVocabFromLists(
+    numVocab: number,
+    listKeys: string[],
+    exclude?: Word
+  ): Word[] {
+    let availableVocab: Word[] = [];
+    this.vocabService.allVocabLists.forEach((list) => {
+      if (listKeys.includes(list.title)) {
+        availableVocab = [...availableVocab, ...list.vocab];
+      }
+    });
+    return this.getRandomVocab(numVocab, exclude, availableVocab);
+  }
+
+  getRandomVocab(numVocab: number, exclude?: Word, vocab?: Word[]): Word[] {
+    let availableVocab = vocab ? vocab : this.allvocab;
+    if (numVocab >= availableVocab.length) {
+      return [...availableVocab];
     }
     let copy = [];
     if (exclude) {
-      copy = [...this.allvocab.filter((word) => word.local !== exclude.local)];
+      copy = [...availableVocab.filter((word) => word.local !== exclude.local)];
     } else {
-      copy = [...this.allvocab];
+      copy = [...availableVocab];
     }
     for (let i = copy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
